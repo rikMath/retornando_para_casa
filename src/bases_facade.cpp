@@ -45,6 +45,14 @@ void BasesFacade::print() {
 
 }
 
+void BasesFacade::print_initial() {
+
+  for (int i = 0; i < 7; i++) {
+      basesArray[i]->print();
+  }
+
+}
+
 void BasesFacade::sort(char which_algorithm) {
 
   switch (which_algorithm) {

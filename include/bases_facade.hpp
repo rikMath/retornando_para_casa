@@ -20,6 +20,7 @@ public:
   BasesFacade (std::ifstream &basesFile, int basesNumber);
   // virtual ~BasesFacade ();
   void print();
+  void print_initial();
   void sort(char);
 };
 

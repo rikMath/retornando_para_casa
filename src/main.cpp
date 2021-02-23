@@ -25,8 +25,11 @@ int main(int argc, char const *argv[]) {
   int basesNumber = stoi(string(argv[2]));
   BasesFacade bases(basesFile, basesNumber);
 
-  measure_time('q', bases);
+  // Utilizar para testar o tempo de execução
+  // measure_time('q', bases);
 
-  // bases.print();
+  bases.sort('q');
+
+  bases.print_initial();
   return 0;
 }
