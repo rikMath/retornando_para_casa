@@ -9,5 +9,6 @@
 
 void insertion_sort(Base**, int);
 void comb_sort(Base**, int);
+void heapSort(Base**, int);
 
 #endif

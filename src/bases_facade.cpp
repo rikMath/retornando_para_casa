@@ -59,6 +59,11 @@ void BasesFacade::sort(char which_algorithm) {
       std::cout<<"comb"<<std::endl;
       break;
 
+    case 'h':
+      heapSort(basesArray, capacity);
+      std::cout<<"heap"<<std::endl;
+      break;
+
     default:
       throw "Não Existente";
 
