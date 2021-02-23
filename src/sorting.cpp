@@ -109,3 +109,63 @@ void heapSort(Base** bases_array, int length)
     }
 
 }
+
+void partition(int Esq, int Dir,int *i, int *j, Base** bases_array) {
+  Base* x;
+  Base* w;
+
+  *i = Esq; *j = Dir;
+  x = bases_array[(*i + *j)/2]; /* obtem o pivo x */
+  do {
+    while (x->get_distance() < bases_array[*i]->get_distance()) (*i)++;
+    while (x->get_distance() > bases_array[*j]->get_distance()) (*j)--;
+    if (*i <= *j) {
+      w = bases_array[*i]; bases_array[*i] = bases_array[*j]; bases_array[*j] = w;
+      (*i)++; (*j)--;
+    }
+  } while (*i <= *j);
+}
+
+
+void ordenate_quick_sort(Base** bases_array, int left, int right) {
+
+  int i, j;
+  partition(left, right, &i, &j, bases_array);
+  if (left < j) ordenate_quick_sort(bases_array, left, j);
+  if (i < right) ordenate_quick_sort(bases_array, i, right);
+
+}
+
+void quick_sort(Base** bases_array, int length) {
+  ordenate_quick_sort(bases_array, 0, length-1);
+}
+
+void modified_ordenate_quick_sort(Base** bases_array, int left, int right) {
+
+  if (right-left > 10) {
+    int i, j;
+    partition(left, right, &i, &j, bases_array);
+    if (left < j) ordenate_quick_sort(bases_array, left, j);
+    if (i < right) ordenate_quick_sort(bases_array, i, right);
+  } else {
+
+    Base* aux;
+    int j;
+    for (int i = left; i <= right; i++) {
+      aux = bases_array[i];
+      j = i-1;
+      while ((j >= 0) && (aux->get_distance() > bases_array[j]->get_distance())) {
+        bases_array[j+1] = bases_array[j];
+        j--;
+      }
+      bases_array[j+1] = aux;
+    }
+
+  }
+
+
+}
+
+void modified_quick_sort(Base** bases_array, int length) {
+  modified_ordenate_quick_sort(bases_array, 0, length-1);
+}

@@ -10,5 +10,7 @@
 void insertion_sort(Base**, int);
 void comb_sort(Base**, int);
 void heapSort(Base**, int);
+void quick_sort(Base**, int);
+void modified_quick_sort(Base**, int);
 
 #endif

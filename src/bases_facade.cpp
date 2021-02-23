@@ -64,6 +64,16 @@ void BasesFacade::sort(char which_algorithm) {
       std::cout<<"heap"<<std::endl;
       break;
 
+    case 'q':
+      quick_sort(basesArray, capacity);
+      std::cout<<"quick"<<std::endl;
+      break;
+
+    case 'm':
+      modified_quick_sort(basesArray, capacity);
+      std::cout<<"modified_quick"<<std::endl;
+      break;
+
     default:
       throw "Não Existente";
 
