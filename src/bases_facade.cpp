@@ -60,7 +60,7 @@ void BasesFacade::sort(char which_algorithm) {
     case 'i':
       insertion_sort(basesArray, capacity);
       std::cout<<"insertion"<<std::endl;
-      break;
+      break; 
 
     case 'c':
       comb_sort(basesArray, capacity);

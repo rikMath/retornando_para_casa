@@ -41,7 +41,7 @@ void comb_sort(Base** bases_array, int length) {
 
     gap = gap/shrink_factor < 1 ? 1 : gap/shrink_factor;
 
-    swaps = false;
+    swaps = false; 
 
     for (int i=0; i<length-gap; i++) {
 

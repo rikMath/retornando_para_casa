@@ -26,9 +26,9 @@ int main(int argc, char const *argv[]) {
   BasesFacade bases(basesFile, basesNumber);
 
   // Utilizar para testar o tempo de execução
-  // measure_time('q', bases);
+  measure_time('m', bases);
 
-  bases.sort('q');
+  // bases.sort('q');
 
   bases.print_initial();
   return 0;
