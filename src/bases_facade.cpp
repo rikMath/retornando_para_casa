@@ -59,27 +59,22 @@ void BasesFacade::sort(char which_algorithm) {
 
     case 'i':
       insertion_sort(basesArray, capacity);
-      std::cout<<"insertion"<<std::endl;
-      break; 
+      break;
 
     case 'c':
       comb_sort(basesArray, capacity);
-      std::cout<<"comb"<<std::endl;
       break;
 
     case 'h':
       heapSort(basesArray, capacity);
-      std::cout<<"heap"<<std::endl;
       break;
 
     case 'q':
       quick_sort(basesArray, capacity);
-      std::cout<<"quick"<<std::endl;
       break;
 
     case 'm':
       modified_quick_sort(basesArray, capacity);
-      std::cout<<"modified_quick"<<std::endl;
       break;
 
     default:

@@ -21,16 +21,6 @@ void insertion_sort(Base** bases_array, int length) {
 
 const double shrink_factor = 1.247330950103979;
 
-int getNextGap(int gap)
-{
-    // Shrink gap by Shrink factor
-    gap /= shrink_factor;
-
-    if (gap < 1)
-        return 1;
-    return gap;
-}
-
 void comb_sort(Base** bases_array, int length) {
 
   int gap = length;
@@ -41,7 +31,7 @@ void comb_sort(Base** bases_array, int length) {
 
     gap = gap/shrink_factor < 1 ? 1 : gap/shrink_factor;
 
-    swaps = false; 
+    swaps = false;
 
     for (int i=0; i<length-gap; i++) {
 
@@ -58,7 +48,7 @@ void comb_sort(Base** bases_array, int length) {
 
 }
 
-// Criação heap mínimo
+// Criação heap
 void heapify(Base** bases_array, int n, int i) {
     int min = i;
     int l = 2 * i + 1; // Filho da esquerda
@@ -91,7 +81,7 @@ void heapify(Base** bases_array, int n, int i) {
 void heapSort(Base** bases_array, int length)
 {
     Base* aux;
-    // Tornando o array um heap mínimo
+    // Tornando o array um heap
     for (int i = length; i >= 0; i--){
       heapify(bases_array, length, i);
     }
@@ -99,7 +89,7 @@ void heapSort(Base** bases_array, int length)
 
 
     for (int i = length - 1; i >= 0; i--) {
-      // Extrai o menor elemento e recria o heap para os elementos restantes
+      // Extrai o maior elemento e recria o heap para os elementos restantes
 
         aux = bases_array[i];
         bases_array[i] = bases_array[0];
@@ -120,8 +110,11 @@ void partition(int Esq, int Dir,int *i, int *j, Base** bases_array) {
     while (x->get_distance() < bases_array[*i]->get_distance()) (*i)++;
     while (x->get_distance() > bases_array[*j]->get_distance()) (*j)--;
     if (*i <= *j) {
-      w = bases_array[*i]; bases_array[*i] = bases_array[*j]; bases_array[*j] = w;
-      (*i)++; (*j)--;
+      w = bases_array[*i];
+      bases_array[*i] = bases_array[*j];
+      bases_array[*j] = w;
+      (*i)++;
+      (*j)--;
     }
   } while (*i <= *j);
 }
